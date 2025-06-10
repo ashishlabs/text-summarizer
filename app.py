@@ -2,7 +2,13 @@ import streamlit as st
 from transformers import pipeline
 
 # Initialize summarizer
-summarizer = pipeline("summarization")
+
+summarizer = pipeline(
+    "summarization",
+    model="sshleifer/distilbart-cnn-12-6",
+    tokenizer="sshleifer/distilbart-cnn-12-6",
+    device=-1  # Force CPU
+)
 
 # Streamlit App UI
 st.set_page_config(page_title="Text Summarizer", layout="centered")
