@@ -3,12 +3,6 @@ from transformers import pipeline
 
 # Initialize summarizer
 
-summarizer = pipeline(
-    "summarization",
-    model="sshleifer/distilbart-cnn-12-6",
-    tokenizer="sshleifer/distilbart-cnn-12-6",
-    device=-1  # Force CPU
-)
 
 # Streamlit App UI
 st.set_page_config(page_title="Text Summarizer", layout="centered")
@@ -24,6 +18,6 @@ if st.button("Summarize"):
         st.warning("Please enter some text.")
     else:
         with st.spinner("Summarizing..."):
-            summary = summarizer(user_input, max_length=120, min_length=30, do_sample=False)
+            summary = "Check Summary"
             st.success("✅ Summary:")
-            st.write(summary[0]['summary_text'])
+            st.write(summary)
